@@ -6,7 +6,6 @@ import { Link } from 'react-router'
 
 
 export default function App({ data }) {
-    console.log(data)
     const {title, ratingAvg, downloads, image, id} = data
     return (
         <Link to={`/apps/${id}`} className="card bg-base-100 p-4 border border-gray-200">

@@ -16,8 +16,8 @@ const navigationData = [
     id: 2
   },
   {
-    name: 'installation',
-    path: '/installation',
+    name: 'My Installation',
+    path: '/my-installation',
     id: 3
   }
 ]

@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <Suspense fallback={<span>Loading</span>}>
+      <Suspense fallback={<span className='loading loading-spinner loading-xl'></span>}>
         <Trending trending={trending} />
       </Suspense>
     </div>

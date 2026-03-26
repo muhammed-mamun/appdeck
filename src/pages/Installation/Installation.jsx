@@ -45,7 +45,7 @@ export default function Installation() {
             </ul>
           </details>
         </div>
-        <Suspense fallback={<span>Loading...</span>}>
+        <Suspense fallback={<span className='loading loading-spinner loading-xl'>Loading...</span>}>
           <InstalledAppsContainer apps={sortedList} setInstalledApps={setInstalledApps} />
         </Suspense>
       </div>

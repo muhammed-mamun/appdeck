@@ -26,7 +26,7 @@ export default function Apps() {
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
             </div>
-            <Suspense fallback={<span>Loading...</span>}> 
+            <Suspense fallback={<span className='loading loading-spinner loading-xl'></span>}> 
                 <AppsContainer setSearchQuery={setSearchQuery} filteredApps={filteredApps}/>
             </Suspense>
         </div>

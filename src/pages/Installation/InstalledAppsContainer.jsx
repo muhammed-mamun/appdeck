@@ -10,7 +10,7 @@ export default function InstalledAppsContainer({ apps, setInstalledApps }) {
         const updatedApps = apps.filter(app => app.id !== id);
         setInstalledApps(updatedApps);
         localStorage.setItem('installed-apps', JSON.stringify(updatedApps));
-
+        window.dispatchEvent(new Event("local-storage-update"));
         Swal.fire({
             title: 'Uninstalled!',
             text: `${title} has been removed.`,
@@ -30,7 +30,7 @@ export default function InstalledAppsContainer({ apps, setInstalledApps }) {
                         const { id, title, image, downloads, ratingAvg, size } = data;
                         
                         return (
-                            <div key={id} className="bg-white p-4 rounded-xl shadow-sm border border-gray-50 flex items-center justify-between hover:shadow-md transition-shadow">
+                            <div key={id} className="flex-col lg:flex-row bg-white p-4 rounded-xl shadow-sm border border-gray-50 flex items-center justify-between hover:shadow-md transition-shadow">
                                 
                                 {/* Left Side: Image and Info */}
                                 <div className="flex items-center gap-6">
@@ -60,9 +60,9 @@ export default function InstalledAppsContainer({ apps, setInstalledApps }) {
                                 </div>
 
                                 {/* Right Side: Uninstall Button */}
-                                <button 
+                                <button  
                                     onClick={() => handleUninstall(id, title)}
-                                    className="bg-[#00D094] hover:bg-[#00B882] text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+                                    className="bg-[#00D094] hover:bg-[#00B882] text-white px-6 my-4 py-2 rounded-lg font-semibold transition-colors"
                                 >
                                     Uninstall
                                 </button>

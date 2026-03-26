@@ -25,7 +25,7 @@ export default function AppDetails() {
       const updatedApps = [...installedApps, singleApp]
       localStorage.setItem('installed-apps', JSON.stringify(updatedApps))
       setIsInstalled(true)
-
+      window.dispatchEvent(new Event("local-storage-update"));
       Swal.fire({
         title: 'Installed!',
         text: `${title} has been Installed successfully.`,

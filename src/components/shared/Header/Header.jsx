@@ -3,6 +3,7 @@ import logo from '../../../assets/logo.png'
 import NavLink from './CustomNavLink'
 import { FaGithub } from 'react-icons/fa'
 import CustoomNavLink from './CustomNavLink'
+import { useEffect, useState } from 'react'
 
 const navigationData = [
   {
@@ -23,6 +24,18 @@ const navigationData = [
 ]
 
 export default function Header() {
+  const [count, setCount] = useState(0)
+  const updateCount = () => {
+    const installed = JSON.parse(localStorage.getItem('installed-apps')) || []
+    setCount(installed.length)
+  } 
+
+  useEffect(()=> {
+    updateCount();
+    window.addEventListener('local-storage-update', updateCount)
+    return () => window.removeEventListener('local-storage-update', updateCount)
+  }, [])
+
   return (
     <div className="navbar bg-base-100 shadow-sm lg:px-20">
       <div className="navbar-start">
@@ -34,7 +47,7 @@ export default function Header() {
             tabIndex="-1"
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
             {
-              navigationData.map(route => <CustoomNavLink key={route.id} route={route} />)
+              navigationData.map(route => <CustoomNavLink count={count} key={route.id} route={route} />)
             }
           </ul>
         </div>
@@ -46,7 +59,7 @@ export default function Header() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           {
-            navigationData.map(route => <CustoomNavLink key={route.id} route={route} />)
+            navigationData.map(route => <CustoomNavLink count={count} key={route.id} route={route} />)
           }
         </ul>
       </div>

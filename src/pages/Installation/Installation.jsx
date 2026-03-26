@@ -27,7 +27,7 @@ export default function Installation() {
       <p className='text-4xl text-center py-4'>Our All Applications</p>
       <p className='text-gray-400 text-center'>Explore All Apps on the Market developed by us. We code for Millions</p>
       <div>
-        <div className='flex justify-between my-4'>
+        <div className='flex justify-between items-center my-4'>
           <p className='capitalize font-semibold text-[#9F62F2]'>({sortedList.length}) apps found</p>
           <details className="dropdown">
            <summary className="btn m-1 bg-[#9F62F2] text-white border-none hover:bg-[#632EE3]">

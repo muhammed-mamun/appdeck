@@ -3,24 +3,30 @@ import logo from '../../../assets/logo.png'
 import { CiFacebook, CiLinkedin, CiTwitter } from 'react-icons/ci'
 export default function Footer() {
   return (
-    <div className='px-20 py-4 bg-[#001931]'>
-      <div className='flex justify-between'>
-        <Link to={'/'} className="flex items-center text-xl">
-          <img className="w-10 h-10" src={logo} alt="logo" />
-          <p className='font-bold text-white'>AppDeck</p>
-        </Link>
-        <div>
-          <p className='font-semibold text-white'>Social Links</p>
-          <div className='flex mr-6 text-white'>
-            <CiLinkedin size={18}/>
-            <CiTwitter size={18}/>
-            <CiFacebook size={18}/>
+  
+      <footer className="lg:px-20 text-gray-100 px-10 footer bg-[#001931]  sm:footer-horizontal p-10">
+        <div className='w-full'>
+          <aside>
+           <Link to={'/'} className="flex items-center text-xl">
+            <img className="w-32 h-32 " src={logo} alt="logo" />
+            <p className='font-bold'>AppDeck</p>
+          </Link>
+          <p className='text-2xl py-2'>
+            AppDeck Technologies Ltd.
+            <br />
+            Providing reliable tech since 1992
+          </p>
+        </aside>
+        <nav>
+          <h6 className="footer-title">Social Links</h6>
+          <div className='flex gap-4'>
+          <a className="link link-hover"><CiLinkedin size={24} /></a>
+          <a className="link link-hover"><CiTwitter size={24} /></a>
+          <a className="link link-hover"><CiFacebook size={24} /></a>
           </div>
+        </nav>
         </div>
-      </div>
-      <div className='w-full h-px bg-gray-50 my-px'></div>
-      <p className='text-center text-white py-3'>Copyright © {new Date().getFullYear()} - All right reserved</p>
-      
-    </div>
+
+      </footer>
   )
 }

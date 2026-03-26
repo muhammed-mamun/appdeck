@@ -23,7 +23,7 @@ export default function Hero() {
             </div>
            </div>
            <div className='min-h-32 py-10 lg:py-20 px-4 w-full bg-linear-to-r from-[#632EE3] to-[#9F62F2] '>
-            <p className='text-3xl font-semibold text-center text-gray-100'>Trusted by Millions, Built for You</p>
+            <p className='text-3xl font-semibold text-center text-gray-100 pb-4'>Trusted by Millions, Built for You</p>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
                 <div className='flex flex-col items-center justify-center space-y-4 text-white'>
                 <p>Total Downloads</p>

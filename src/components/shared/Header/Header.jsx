@@ -51,7 +51,7 @@ export default function Header() {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link className="btn font-bold flex gap-1 p-6 bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white"> <FaGithub size={18} />
+        <Link to={`https://github.com/muhammed-mamun/appdeck`} className="btn font-bold flex gap-1 p-6 bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white"> <FaGithub size={18} />
           Contribute</Link>
       </div>
     </div>

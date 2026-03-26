@@ -11,14 +11,14 @@ export default function Footer() {
         </Link>
         <div>
           <p className='font-semibold text-white'>Social Links</p>
-          <div className='flex mr-2 text-white'>
-            <CiLinkedin />
-            <CiTwitter />
-            <CiFacebook />
+          <div className='flex mr-6 text-white'>
+            <CiLinkedin size={18}/>
+            <CiTwitter size={18}/>
+            <CiFacebook size={18}/>
           </div>
         </div>
       </div>
-      <div className='w-full h-px bg-gray-50'></div>
+      <div className='w-full h-px bg-gray-50 my-px'></div>
       <p className='text-center text-white py-3'>Copyright © {new Date().getFullYear()} - All right reserved</p>
       
     </div>

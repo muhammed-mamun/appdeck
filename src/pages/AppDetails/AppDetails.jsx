@@ -11,78 +11,98 @@ export default function AppDetails() {
   const data = useLoaderData()
   const singleApp = data.find(app => app.id === parseInt(id));
   const { title, companyName, image, description, size, reviews, ratingAvg, downloads, ratings } = singleApp
-  
-  useEffect(()=> {
+
+  useEffect(() => {
     const installedApps = JSON.parse(localStorage.getItem('installed-apps')) || []
-    const exists = installedApps.find(app=> app.id === parseInt(singleApp.id))
-    if (exists) setIsInstalled(true) 
-  },[singleApp.id])
+    const exists = installedApps.find(app => app.id === parseInt(singleApp.id))
+    if (exists) setIsInstalled(true)
+  }, [singleApp.id])
 
   const handleInstall = () => {
     const installedApps = JSON.parse(localStorage.getItem('installed-apps')) || []
     const exists = installedApps.find(app => app.id === parseInt(singleApp.id))
     if (!exists) {
       const updatedApps = [...installedApps, singleApp]
-      localStorage.setItem('installed-apps', JSON.stringify(updatedApps)) 
+      localStorage.setItem('installed-apps', JSON.stringify(updatedApps))
       setIsInstalled(true)
-      
-       Swal.fire({
-                  title: 'Installed!',
-                  text: `${title} has been Installed successfully.`,
-                  icon: 'success',
-                  toast: true,
-                  position: 'top-end',
-                  showConfirmButton: false,
-                  timer: 3000,
-              });
+
+      Swal.fire({
+        title: 'Installed!',
+        text: `${title} has been Installed successfully.`,
+        icon: 'success',
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+      });
     } else {
       Swal.fire({
-                  title: 'Already Installed!',
-                  text: `${title} Already is in the bucket.`,
-                  icon: 'success',
-                  toast: true,
-                  position: 'top-end',
-                  showConfirmButton: false,
-                  timer: 3000,
-              });
+        title: 'Already Installed!',
+        text: `${title} Already is in the bucket.`,
+        icon: 'success',
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+      });
     }
   }
   return (
     <div className="lg:px-20 lg:py-20 py-6 px-10 space-y-6 flex flex-col">
-      <div className="flex gap-6">
-        <img className="w-58 rounded-lg" src={image} alt={title} />
-        <div className="flex flex-col w-full justify-between">
-          <div>
-            <p className="text-3xl font-bold">{title}</p>
-            <p>Developed by <span className='font-bold bg-linear-to-r from-[#632EE3] to-[#9F62F2] inline-block text-transparent bg-clip-text'>{companyName}</span></p>
+      <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-start gap-10 lg:gap-16 max-w-6xl mx-auto w-full">
 
-            <div className="h-px my-4 bg-gray-300 w-full"></div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex flex-col justify-center items-center">
-              <img className="w-6 h-6" src={downloadIcon} alt="download icon" />
-              <p className="text-sm">Downloads</p>
-              <p className="font-semibold text-lg">{downloads / 1000000}M</p>
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <img className="w-6 h-6" src={ratingIcon} alt="rating icon" />
-              <p className="text-sm">Average Ratings</p>
-              <p className="font-semibold text-lg">{ratingAvg}</p>
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <img className="w-6 h-6" src={reviewIcon} alt="download icon" />
-              <p className="text-sm">Total reviews</p>
-              <p className="font-semibold text-lg">{reviews / 1000}K</p>
-            </div>
-          </div>
-          <div>
-            <button 
-            onClick={handleInstall}
-            disabled={isInstalled}
-            className={`btn px-6 py-2  rounded-2xl   transition-colors ${isInstalled ? 'bg-gray-200 text-black cursor-not-allowed': 'bg-green-600 text-gray-200 hover:bg-green-700'}`}>{isInstalled ? "Installed" : `Install Now (${size} MB)`}</button>
-          </div>
+        <div className="shrink-0">
+          <img
+            className="w-64 h-64 lg:w-80 lg:h-80 rounded-3xl object-cover shadow-md"
+            src={image}
+            alt={title}
+          />
         </div>
 
+        <div className="flex flex-col grow text-center lg:text-left pt-2">
+          <div>
+            <h1 className="text-4xl lg:text-5xl font-extrabold text-[#1A2B3C] tracking-tight">
+              {title}
+            </h1>
+            <p className="text-lg mt-2 font-medium text-gray-600">
+              Developed by <span className='text-[#9F62F2] font-bold'>{companyName}</span>
+            </p>
+
+            <div className="h-px mt-6 mb-8 bg-gray-200 w-full"></div>
+          </div>
+
+          <div className="flex justify-around lg:justify-start gap-8 lg:gap-12 items-center mb-10">
+            <div className="flex flex-col items-center lg:items-start">
+              <img className="w-6 h-6 mb-2" src={downloadIcon} alt="downloads" />
+              <p className="text-xs text-gray-400 uppercase font-semibold">Downloads</p>
+              <p className="font-bold text-2xl">{(downloads / 1000000).toFixed(1)}M</p>
+            </div>
+
+            <div className="flex flex-col items-center lg:items-start">
+              <img className="w-6 h-6 mb-2" src={ratingIcon} alt="ratings" />
+              <p className="text-xs text-gray-400 uppercase font-semibold">Average Ratings</p>
+              <p className="font-bold text-2xl">{ratingAvg}</p>
+            </div>
+
+            <div className="flex flex-col items-center lg:items-start">
+              <img className="w-6 h-6 mb-2" src={reviewIcon} alt="reviews" />
+              <p className="text-xs text-gray-400 uppercase font-semibold">Total reviews</p>
+              <p className="font-bold text-2xl">{(reviews / 1000).toFixed(0)}K</p>
+            </div>
+          </div>
+
+          {/* Install Button */}
+          <div className="flex justify-center lg:justify-start">
+            <button
+              onClick={handleInstall}
+              disabled={isInstalled}
+              className={`px-12 py-3.5 rounded-2xl font-bold text-white transition-all text-lg shadow-lg active:scale-95 ${isInstalled ? 'bg-gray-400' : 'bg-[#00D094] hover:bg-[#00B882]'
+                }`}
+            >
+              {isInstalled ? "Installed" : `Install Now (${size} MB)`}
+            </button>
+          </div>
+        </div>
       </div>
 
       <div className="h-px my-4 bg-gray-300 w-full"></div>

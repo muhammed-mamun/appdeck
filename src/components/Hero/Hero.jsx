@@ -3,6 +3,7 @@ import { BiLogoPlayStore } from 'react-icons/bi'
 import { FaAppStoreIos } from 'react-icons/fa'
 
 import hero from '../../assets/hero.png'
+import { Link } from 'react-router'
 export default function Hero() {
     return (
         <div className='py-12 lg:py-20 min-h-80'>
@@ -13,10 +14,10 @@ export default function Hero() {
             </div>
             <p className='sm:4 lg:px-48 text-center text-base font-medium text-gray-600'>At APPDECK, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting.Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
             <div className='flex gap-2 justify-center'>
-                <button className='flex items-center btn hover:border-2 hover:border-blue-500'><BiLogoPlayStore size={24}/>
-                    Google Play</button>
-                <button className='flex items-center btn hover:border-2 hover:border-blue-500'><FaAppStoreIos size={24}/>
-                    App Store</button>
+                <Link to={`https://play.google.com/store/`} className='flex items-center btn hover:border-2 hover:border-blue-500'><BiLogoPlayStore size={24}/>
+                    Google Play</Link>
+                <Link to={`https://www.apple.com/app-store/`} className='flex items-center btn hover:border-2 hover:border-blue-500'><FaAppStoreIos size={24}/>
+                    App Store</Link>
             </div>
             <div className='flex justify-center px-4'>
                 <img src={hero} alt="hero img" />

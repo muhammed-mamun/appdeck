@@ -1,12 +1,63 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 📱 AppDeck — Your Ultimate Application Hub
 
-Currently, two official plugins are available:
+**AppDeck** is a high-performance, responsive App Store platform. It features a curated marketplace where users can discover, search, and manage software with real-time analytics and local installation persistence.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 [Live Demo Link](https://appdeck-beryl.vercel.app/)
 
-## Expanding the ESLint configuration
+## 📂 [GitHub Repository](https://github.com/muhammed-mamun/appdeck)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-----
+
+## ✨ Key Features & Functionality
+
+### 🏠 Home & Discovery
+
+  * **Dynamic Banner:** Quick-action buttons to external stores and primary navigation.
+  * **Top Apps:** A grid of the 8 highest-performing apps featuring real-time download and rating stats.
+  * **Live Search:** Case-insensitive filtering that updates the UI instantly as the user types.
+
+### 📊 App Intelligence (Details Page)
+
+  * **Data Visualization:** Custom horizontal bar charts powered by **Recharts** to visualize user rating distributions.
+  * **Dynamic Loaders:** Integrated **Suspense** and loading animations for a smooth navigation experience.
+  * **Success Feedback:** Interactive **SweetAlert2** toasts triggered upon successful installation.
+
+### 🛠️ My Installation (Challenge Requirements)
+
+  * **Local Persistence:** Uses `localStorage` to save user "installations," ensuring data survives page reloads.
+  * **Smart Sorting:** A custom dropdown allows users to sort their library by **Downloads (High-Low / Low-High)**.
+  * **One-Click Uninstall:** Remove apps from both the UI and local storage with a single click, accompanied by a confirmation toast.
+
+-----
+
+## 🛠️ Tech Stack
+
+  * **Framework:** React 18+ (with React Router v7, vite v7)
+  * **Styling:** Tailwind CSS & DaisyUI
+  * **Charts:** Recharts (SVG-based responsive charts)
+  * **State Management:** React Hooks (`useState`, `useEffect`)
+  * **Notifications:** SweetAlert2
+  * **Icons:** Lucide-React / Custom SVG Assets
+
+-----
+
+## 🧱 Assignment Requirements Checklist
+
+  - [x] **Responsiveness:** Fully optimized for Mobile, Tablet, and Desktop.
+  - [x] **Route Handling:** Custom 404 Error page and `_redirects` for production stability.
+  - [x] **Data Design:** JSON structure with 12-20 objects including nested rating arrays.
+  - [x] **Challenge Logic:** Full `localStorage` CRUD operations for the Installation page.
+  - [x] **Sorting:** Implemented High-Low and Low-High download sorting.
+  - [x] **Commits:** Minimum 5+ meaningful commits in the repository history.
+
+-----
+
+### 🛠️ Installation & Setup
+
+1.  **Clone:** `git clone https://github.com/your-username/appdeck.git`
+2.  **Install:** `npm install`
+3.  **Run:** `npm run dev`
+4.  **Build:** `npm run build`
+
+**Developed with ❤️ by Md. Mamun Hossain**

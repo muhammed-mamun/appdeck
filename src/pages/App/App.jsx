@@ -2,13 +2,14 @@ import  { use } from 'react'
 
 import downloadIcon from '../../assets/icon-downloads.png'
 import ratingsIcon from '../../assets/icon-ratings.png'
+import { Link } from 'react-router'
 
 
 export default function App({ data }) {
     console.log(data)
-    const {title, ratingAvg, downloads, image} = data
+    const {title, ratingAvg, downloads, image, id} = data
     return (
-        <div className="card bg-base-100 p-4 border border-gray-200">
+        <Link to={`/apps/${id}`} className="card bg-base-100 p-4 border border-gray-200">
             <figure className="">
                 <img
                     src={image}
@@ -22,6 +23,6 @@ export default function App({ data }) {
                     <p className='flex items-center text-center gap-1'> <img src={ratingsIcon} alt="download icon"  className='h-4 w-4'/>{ratingAvg}</p>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }

@@ -21,12 +21,13 @@ export default function Apps() {
             <input 
                 type="search" 
                 placeholder='Search Apps...'
+                value={searchQuery}
                 className='border border-[#9F62F2] p-1 rounded-lg w-64 outline-none focus:ring-2 focus:ring-[#9F62F2]'
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
             </div>
             <Suspense fallback={<span>Loading...</span>}> 
-                <AppsContainer filteredApps={filteredApps}/>
+                <AppsContainer setSearchQuery={setSearchQuery} filteredApps={filteredApps}/>
             </Suspense>
         </div>
     </div>
